@@ -1,0 +1,19 @@
+{
+  "name": "pod-server-proxy",
+  "version": "0.0.1",
+  "description": "Simple http-proxy for pod server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjsavage/pod-server-proxy.git"
+  },
+  "author": "Taylor Savage",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjsavage/pod-server-proxy/issues"
+  },
+  "homepage": "https://github.com/tjsavage/pod-server-proxy#readme"
+}
