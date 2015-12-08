@@ -22,9 +22,9 @@ var server = require('http').createServer(function(req, res) {
     })
   } else {
     res.write('No proxy match for ' + req.headers.host);
-    res.write('Routes:');
+    res.write('\nRoutes:');
     for(var k in router) {
-      res.write(k);
+      res.write('\n' + k);
     }
     res.end();
   }
