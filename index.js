@@ -24,4 +24,4 @@ var server = require('http').createServer(function(req, res) {
   var port = server.address().port;
 
   console.log("pod-proxy listening at http://%s:%s", host, port);
-}););
+});
