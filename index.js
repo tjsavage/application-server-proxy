@@ -3,4 +3,25 @@ var fs = require('fs');
 
 var podConfig = JSON.parse(fs.readFileSync(process.env.HOME + '/.podrc', 'utf-8'));
 
-console.log("podConfig:", podConfig);
+var router = {};
+
+for (var key in podConfig.apps) {
+   var app = podConfig.apps[key];
+
+   if ('root_url' in app) {
+     router[app.root_url] = 'http://127.0.0.1:' + app.port;
+   }
+}
+
+var proxy = httpProxy.createProxy();
+
+var server = require('http').createServer(function(req, res) {
+  proxy.web(req, res, {
+    target: router[req.headers.host]
+  })
+}).listen(process.env.port, function() {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log("pod-proxy listening at http://%s:%s", host, port);
+}););
