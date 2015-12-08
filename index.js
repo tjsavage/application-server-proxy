@@ -1,5 +1,6 @@
 var httpProxy = require('http-proxy');
+var fs = require('fs');
 
-var podConfig = require('~/.podrc');
+var podConfig = JSON.parse(fs.readFileSync('~/.podrc', 'utf-8'));
 
 console.log("podConfig:", podConfig);
