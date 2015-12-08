@@ -16,9 +16,14 @@ for (var key in podConfig.apps) {
 var proxy = httpProxy.createProxy();
 
 var server = require('http').createServer(function(req, res) {
-  proxy.web(req, res, {
-    target: router[req.headers.host]
-  })
+  if (req.headers.host in router) {
+    proxy.web(req, res, {
+      target: router[req.headers.host]
+    })
+  } else {
+    res.end('No proxy match for ' + req.headers.host);
+  }
+
 }).listen(process.env.PORT, function() {
   var host = server.address().address;
   var port = server.address().port;
