@@ -21,7 +21,12 @@ var server = require('http').createServer(function(req, res) {
       target: router[req.headers.host]
     })
   } else {
-    res.end('No proxy match for ' + req.headers.host);
+    res.write('No proxy match for ' + req.headers.host);
+    res.write('Routes:');
+    for(var k in router) {
+      res.write(k);
+    }
+    res.end();
   }
 
 }).listen(process.env.PORT, function() {
