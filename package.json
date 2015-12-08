@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tjsavage/pod-server-proxy/issues"
   },
-  "homepage": "https://github.com/tjsavage/pod-server-proxy#readme"
+  "homepage": "https://github.com/tjsavage/pod-server-proxy#readme",
+  "dependencies": {
+    "http-proxy": "^1.12.0"
+  }
 }
