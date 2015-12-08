@@ -19,7 +19,7 @@ var server = require('http').createServer(function(req, res) {
   proxy.web(req, res, {
     target: router[req.headers.host]
   })
-}).listen(process.env.port, function() {
+}).listen(process.env.PORT, function() {
   var host = server.address().address;
   var port = server.address().port;
 
